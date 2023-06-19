@@ -10,5 +10,14 @@ public class UnitScriptableObject : ScriptableObject
     
     [SerializeField] internal int unitCount;
 
+    [SerializeField] internal int maxHealth;
     [SerializeField] internal int health;
+
+    [SerializeField] internal int defence;
+
+    [SerializeField] internal int travelDistance;
+
+    [SerializeField] internal int attackPower;
+
+    [SerializeField] internal int traits;
 }
