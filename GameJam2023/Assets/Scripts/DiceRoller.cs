@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DiceRoller : MonoBehaviour
 {
-    public float diePower, timeMultiplier;
+    public float diePower, dieTorque, timeMultiplier;
     private Rigidbody rb;
     [SerializeField]
     private GameObject Die;
     public float tempTimer;
+
 
     void Reset()
     {
@@ -19,6 +20,7 @@ public class DiceRoller : MonoBehaviour
     {
         GameObject die = Instantiate(Die, transform.position, new Quaternion(Random.Range(0,359), Random.Range(0, 359), Random.Range(0, 359), 1));
         die.GetComponent<Rigidbody>().AddForce(this.transform.forward * (charge * diePower), ForceMode.Impulse);
+        die.GetComponent<Rigidbody>().AddTorque(Random.Range(0,dieTorque), Random.Range(0, dieTorque), Random.Range(0, dieTorque), ForceMode.VelocityChange);
     }
 
     void Update()

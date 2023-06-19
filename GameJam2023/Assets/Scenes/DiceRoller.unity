@@ -413,7 +413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a73ed659f23e84fafceaf7a331a043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diePower: 20
+  diePower: 100
+  dieTorque: 5
   timeMultiplier: 0.24
   Die: {fileID: 4233362968930601107, guid: ea56eea4f88626e43a3d968a75143a46, type: 3}
   tempTimer: 0
