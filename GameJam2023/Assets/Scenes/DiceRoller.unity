@@ -315,53 +315,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1847537254
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1847537256}
-  - component: {fileID: 1847537255}
-  m_Layer: 0
-  m_Name: HexGrid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1847537255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847537254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a09df24217736143889452d16898e18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HexPrefab: {fileID: 83552568743028018, guid: da1302b7b517eeb41b05e5507c166774, type: 3}
-  width: 2
-  height: 2
---- !u!4 &1847537256
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847537254}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28625822, y: -0.32798028, z: -0.5325446}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2099947843
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,14 +393,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099947843}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.17948307, y: -0, z: -0, w: 0.98376113}
   m_LocalPosition: {x: 0, y: 11.9, z: -21.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20.679, y: 0, z: 0}
 --- !u!114 &2099947847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,6 +418,7 @@ MonoBehaviour:
   timeMultiplier: 0.24
   Die: {fileID: 4233362968930601107, guid: ea56eea4f88626e43a3d968a75143a46, type: 3}
   tempTimer: 0
+  diceToThrow: 0
 --- !u!114 &2099947848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,3 +431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e774e580c3b5bf46bff93a299381eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 10
+  moveScalar: 2
+  rotateSpeed: 0.24

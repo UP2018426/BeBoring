@@ -9,12 +9,7 @@ public class DiceRoller : MonoBehaviour
     [SerializeField]
     private GameObject Die;
     public float tempTimer;
-
-
-    void Reset()
-    {
-
-    }
+    public int diceToThrow;
 
     void ThrowDice(float charge)
     {
@@ -35,7 +30,10 @@ public class DiceRoller : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
-            ThrowDice(Mathf.Clamp01(tempTimer));
+            for (int i = 0; i < diceToThrow; i++)
+            {
+                ThrowDice(Mathf.Clamp01(tempTimer));
+            }
         }
         
         tempTimer = Mathf.Clamp01(tempTimer);
