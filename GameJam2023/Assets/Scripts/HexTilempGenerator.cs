@@ -14,7 +14,6 @@ public class HexTilempGenerator : MonoBehaviour
 
     void Start()
     {
-
         CreateTilemap();
     }
 
