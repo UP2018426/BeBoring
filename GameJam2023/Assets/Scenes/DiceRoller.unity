@@ -434,3 +434,5 @@ MonoBehaviour:
   moveSpeed: 10
   moveScalar: 2
   rotateSpeed: 0.24
+  yMouseAxisCalp: {x: -60, y: 60}
+  yPosLimit: {x: 5, y: 15}
