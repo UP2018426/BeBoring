@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
 
         if (Input.GetMouseButton(2)) 
         {
-            //Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = false;
             Vector3 mouseDelta;
             if (lastMousePos.x >= 0 && lastMousePos.y >= 0)

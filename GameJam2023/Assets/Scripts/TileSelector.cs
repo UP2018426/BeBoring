@@ -11,6 +11,8 @@ public class TileSelector : MonoBehaviour
 
     [SerializeField] GameObject unit;
 
+    public bool selectable;
+
 
 
     private void Awake()
@@ -23,14 +25,15 @@ public class TileSelector : MonoBehaviour
 
     
 
-
+        
 
 
     private void OnMouseEnter()
     {
-        meshRenderer.material = HoverMat;
+        if(Cursor.visible)
+            meshRenderer.material = HoverMat;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && Cursor.visible && selectable)
         {
             Instantiate(unit,transform.position,Quaternion.identity);
         }
