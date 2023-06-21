@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    internal static GameManager instance;
     public GameObject selectedUnit;
 
     // Update is called once per frame
@@ -11,4 +12,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    
 }

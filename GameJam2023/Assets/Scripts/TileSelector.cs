@@ -13,29 +13,32 @@ public class TileSelector : MonoBehaviour
 
     public bool selectable;
 
-
+    public GameManager gm;
 
     private void Awake()
     {
+        gm = GameObject.FindObjectOfType<GameManager>();
         thisMaterial = meshRenderer.material;//can be changed if need multiple materials
     }
 
 
 
 
-    
-
-        
 
 
-    private void OnMouseEnter()
+
+
+    private void OnMouseOver()
     {
-        if(Cursor.visible)
+        if(Cursor.visible && selectable)
             meshRenderer.material = HoverMat;
 
-        if (Input.GetMouseButton(0) && Cursor.visible && selectable)
+        if (Input.GetMouseButtonUp(0) && Cursor.visible && selectable)
         {
-            Instantiate(unit,transform.position,Quaternion.identity);
+            gm.selectedUnit.transform.position = transform.position;
+            //Debug.Log("SHID");
+
+            //Instantiate(unit,transform.position,Quaternion.identity);
         }
     }
 

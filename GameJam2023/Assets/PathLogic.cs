@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class PathLogic : MonoBehaviour
 {
     private bool inPlay;
-    public Collider[] neighbours;
+    public List<Collider> neighbours;
     private GameObject currentPos;
     // Start is called before the first frame update
     void Start()
@@ -23,11 +24,16 @@ public class PathLogic : MonoBehaviour
 
     void CheckNeighbours()
     {
-        neighbours = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, LayerMask.GetMask("Water"));
+        for (int i = 0; i < neighbours.Count; i++)
+        {
+            neighbours[i].GetComponent<TileSelector>().selectable = false;
+        }
+
+        neighbours = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, LayerMask.GetMask("Water")).ToList();
         
         float temp = Mathf.Infinity;
         
-        for (int i = 0; i < neighbours.Length; i++)
+        for (int i = 0; i < neighbours.Count; i++)
         {
             neighbours[i].GetComponent<TileSelector>().selectable = true;
             if((neighbours[i].gameObject.transform.position - transform.position).magnitude < temp)
@@ -36,22 +42,30 @@ public class PathLogic : MonoBehaviour
                 currentPos = neighbours[i].gameObject;
             }
         }
+        for (int i = 0; i < neighbours.Count; i++)
+        {
+            if (neighbours[i].gameObject == currentPos)
+            {
+                neighbours[i].GetComponent<TileSelector>().selectable = false;
+                neighbours.RemoveAt(i);
+            }
+        }
     }
 
     private void OnDrawGizmos()
     {
         if (inPlay)
         {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawSphere(currentPos.transform.position, 0.8f);
-            Gizmos.color = Color.red;
+            Gizmos.color = new Color(0,0,1,0.25f);
+            Gizmos.DrawSphere(currentPos.transform.position, 0.4f);
+            Gizmos.color = new Color(1, 0, 0, 0.25f);
 
-            for (int i = 0; i < neighbours.Length; i++)
+            for (int i = 0; i < neighbours.Count; i++)
             {
-                Gizmos.DrawSphere(neighbours[i].transform.position, 0.8f);
+                Gizmos.DrawSphere(neighbours[i].transform.position, 0.4f);
             }
 
             Gizmos.DrawWireCube(transform.position, transform.forward);
         }
-    }
+    } 
 }

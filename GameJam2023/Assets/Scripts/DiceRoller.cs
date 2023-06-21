@@ -8,8 +8,9 @@ public class DiceRoller : MonoBehaviour
     private Rigidbody rb;
     [SerializeField]
     private GameObject Die;
-    public float tempTimer;
+    private float tempTimer;
     public int diceToThrow;
+    public bool canThrow;
 
     void ThrowDice(float charge)
     {
@@ -20,16 +21,17 @@ public class DiceRoller : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canThrow)
         {
             tempTimer = 0.5f;
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && canThrow)
         {
             tempTimer += Time.deltaTime * timeMultiplier;
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.Space) && canThrow)
         {
+            canThrow = false;
             for (int i = 0; i < diceToThrow; i++)
             {
                 ThrowDice(Mathf.Clamp01(tempTimer));
