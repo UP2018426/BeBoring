@@ -10,6 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ebbf6231130d0f4eb20bf50a5ed26a5, type: 3}
-  m_Name: Unit
+  m_Name: Cavalry
   m_EditorClassIdentifier: 
-  unitName: 
+  unitName: Cavalry
+  maxHealth: 5
+  formation: 0
+  numberOfMoves: 5
+  attackPower: 1
+  range: 1
