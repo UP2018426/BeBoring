@@ -36,6 +36,7 @@ public class TileSelector : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && Cursor.visible && selectable)
         {
             gm.selectedUnit.transform.position = transform.position;
+            gm.playerAMoves.Add(new GameManager.TroopCommands(GameManager.MoveType.Move, new Vector2(transform.position.x, transform.position.z)));
             //Debug.Log("SHID");
 
             //Instantiate(unit,transform.position,Quaternion.identity);
