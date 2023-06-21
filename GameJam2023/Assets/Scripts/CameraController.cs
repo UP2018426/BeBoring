@@ -4,47 +4,62 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]
-    private float moveSpeed, moveScalar, rotateSpeed;
+    [SerializeField] private float moveSpeed, moveScalar, rotateSpeed;
     private Vector3 moveDir;
     private Vector3 lastMousePos;
+    Vector3 mouseDelta = new();
+
+    [SerializeField] Vector2 yMouseAxisCalp;
+
+    [SerializeField] Vector2 yPosLimit;
 
     void Update()
     {
         moveDir = Vector3.zero;
 
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
             moveDir += transform.forward * Time.deltaTime * moveSpeed;
-        if(Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
             moveDir += -transform.forward * Time.deltaTime * moveSpeed;
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
             moveDir += -transform.right * Time.deltaTime * moveSpeed;
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
             moveDir += transform.right * Time.deltaTime * moveSpeed;
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.LeftControl))
             moveDir += Vector3.up * Time.deltaTime * moveSpeed * 0.8f;
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Space))
             moveDir += Vector3.down * Time.deltaTime * moveSpeed * 0.8f;
+
+
 
         if (Input.GetKey(KeyCode.LeftShift))
             transform.position += moveDir * moveScalar;
         else
             transform.position += moveDir;
 
-        if (Input.GetMouseButton(2)) 
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, yPosLimit.x, yPosLimit.y), transform.position.z);
+        
+        if (Input.GetMouseButton(2))
         {
             //Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            Vector3 mouseDelta;
-            if (lastMousePos.x >= 0 && lastMousePos.y >= 0)
-            {
-                mouseDelta = Input.mousePosition - lastMousePos;
-                mouseDelta = new Vector3(-mouseDelta.y * rotateSpeed, mouseDelta.x * rotateSpeed, 0);
-                mouseDelta = new Vector3(transform.eulerAngles.x + mouseDelta.x, transform.eulerAngles.y + mouseDelta.y, 0);
-                transform.eulerAngles = mouseDelta;
-            }
-            lastMousePos = Input.mousePosition;
+
+
+            mouseDelta.y += Input.GetAxis("Mouse X");
+            mouseDelta.x -= Input.GetAxis("Mouse Y");
+            mouseDelta.y = Mathf.Clamp(mouseDelta.y,yMouseAxisCalp.x,yMouseAxisCalp.y);
+
+
+            transform.rotation = Quaternion.Euler(-mouseDelta.x, mouseDelta.y, 0f);
+
+            //if (lastMousePos.x >= 0 && lastMousePos.y >= 0)
+            //{
+            //mouseDelta = Input.mousePosition - lastMousePos;
+            //mouseDelta = new Vector3(-mouseDelta.y * rotateSpeed, mouseDelta.x * rotateSpeed, 0);
+            //mouseDelta = new Vector3(transform.eulerAngles.x + mouseDelta.x, transform.eulerAngles.y + mouseDelta.y, 0);
+            //}
+            //lastMousePos = Input.mousePosition;
         }
         else
         {

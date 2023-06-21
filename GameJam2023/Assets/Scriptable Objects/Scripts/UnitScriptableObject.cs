@@ -7,15 +7,15 @@ using UnityEngine;
 public class UnitScriptableObject : ScriptableObject
 {
     [SerializeField] internal string unitName;
+
+    [SerializeField] private int numberOfMoves;
     
     [SerializeField] internal int unitCount;
 
     [SerializeField] internal int maxHealth;
-    [SerializeField] internal int health;
+    //[SerializeField] internal int health;
 
     [SerializeField] internal int defence;
-
-    [SerializeField] internal int travelDistance;
 
     [SerializeField] internal int attackPower;
 
