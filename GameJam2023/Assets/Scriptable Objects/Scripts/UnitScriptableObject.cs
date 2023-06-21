@@ -1,23 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Unit", menuName = "ScriptableObjects/Unit", order = 1)]
+[CreateAssetMenu(fileName = "Unit", menuName = "ScriptableObjects/Unit", order = 0)]
 public class UnitScriptableObject : ScriptableObject
 {
     [SerializeField] internal string unitName;
 
-    [SerializeField] private int numberOfMoves;
-    
-    [SerializeField] internal int unitCount;
-
     [SerializeField] internal int maxHealth;
-    //[SerializeField] internal int health;
+    [Serializable] internal enum Formation { march,defence,attack};
 
-    [SerializeField] internal int defence;
+    [SerializeField] internal Formation formation;
+
+    [SerializeField] internal int numberOfMoves;
 
     [SerializeField] internal int attackPower;
 
-    [SerializeField] internal int traits;
+    [SerializeField] internal int range;
+
 }
