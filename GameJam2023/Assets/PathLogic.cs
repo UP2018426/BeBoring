@@ -8,11 +8,17 @@ public class PathLogic : MonoBehaviour
 {
     private bool inPlay;
     public List<Collider> neighbours;
-    private GameObject currentPos;
+    [SerializeField]private GameObject currentPos;
+
+    [SerializeField] internal UnitScriptableObject unit;
+
+    [SerializeField] internal int numOfMoves;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         inPlay = true;
+        numOfMoves = unit.numberOfMoves;
     }
 
     // Update is called once per frame

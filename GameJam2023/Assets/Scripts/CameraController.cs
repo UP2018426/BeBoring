@@ -47,7 +47,7 @@ public class CameraController : MonoBehaviour
 
 
             mouseDelta.x -= Input.GetAxis("Mouse X");
-            mouseDelta.y += Input.GetAxis("Mouse Y");
+            mouseDelta.y -= Input.GetAxis("Mouse Y");
             mouseDelta.y = Mathf.Clamp(mouseDelta.y,yMouseAxisClamp.x,yMouseAxisClamp.y);
 
 
