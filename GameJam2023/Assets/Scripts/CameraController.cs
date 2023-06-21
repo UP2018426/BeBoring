@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     private Vector3 lastMousePos;
     Vector3 mouseDelta = new();
 
-    [SerializeField] Vector2 yMouseAxisCalp;
+    [SerializeField] Vector2 yMouseAxisClamp;
 
     [SerializeField] Vector2 yPosLimit;
 
@@ -48,7 +48,7 @@ public class CameraController : MonoBehaviour
 
             mouseDelta.x -= Input.GetAxis("Mouse X");
             mouseDelta.y += Input.GetAxis("Mouse Y");
-            mouseDelta.y = Mathf.Clamp(mouseDelta.y,yMouseAxisCalp.x,yMouseAxisCalp.y);
+            mouseDelta.y = Mathf.Clamp(mouseDelta.y,yMouseAxisClamp.x,yMouseAxisClamp.y);
 
 
             transform.rotation = Quaternion.Euler(mouseDelta.y,-mouseDelta.x, 0f);
