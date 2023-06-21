@@ -46,12 +46,12 @@ public class CameraController : MonoBehaviour
             Cursor.visible = false;
 
 
-            mouseDelta.y += Input.GetAxis("Mouse X");
-            mouseDelta.x -= Input.GetAxis("Mouse Y");
+            mouseDelta.x -= Input.GetAxis("Mouse X");
+            mouseDelta.y += Input.GetAxis("Mouse Y");
             mouseDelta.y = Mathf.Clamp(mouseDelta.y,yMouseAxisCalp.x,yMouseAxisCalp.y);
 
 
-            transform.rotation = Quaternion.Euler(-mouseDelta.x, mouseDelta.y, 0f);
+            transform.rotation = Quaternion.Euler(mouseDelta.y,-mouseDelta.x, 0f);
 
             //if (lastMousePos.x >= 0 && lastMousePos.y >= 0)
             //{
