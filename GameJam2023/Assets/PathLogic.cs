@@ -15,7 +15,7 @@ public class PathLogic : MonoBehaviour
     [SerializeField] internal int numOfMoves;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         inPlay = true;
         numOfMoves = unit.numberOfMoves;

@@ -35,6 +35,13 @@ public class GameManager : MonoBehaviour
 
     Camera cam;
     [SerializeField] LayerMask mask;
+    [SerializeField] LayerMask mask2;
+    [SerializeField] internal bool placing;
+    [SerializeField] internal UnitScriptableObject unitTypeToPass;
+
+    [SerializeField] GameObject prefabUnit;
+    internal Color tmpColour;
+
     private void Awake()
     {
         cam = Camera.main;
@@ -64,10 +71,20 @@ public class GameManager : MonoBehaviour
 
                 selectedUnit = hit.transform.gameObject;
             }
-            else if(hit.collider == null && selectedUnit != null)
+            else if (hit.collider == null && selectedUnit != null)
             {
                 selectedUnit.GetComponent<Renderer>().material.color = Color.white;
                 selectedUnit = null;
+            }
+
+
+            if (Physics.Raycast(ray, out hit, 100, mask2) && placing)
+            {
+                var tmp = Instantiate(prefabUnit, hit.transform.position, Quaternion.identity);
+                tmp.GetComponent<PathLogic>().unit = unitTypeToPass;
+                tmp.GetComponent<Renderer>().material.color = tmpColour;
+
+                placing = false;
             }
         }
     }
