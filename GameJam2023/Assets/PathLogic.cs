@@ -13,12 +13,14 @@ public class PathLogic : MonoBehaviour
     [SerializeField] internal UnitScriptableObject unit;
 
     [SerializeField] internal int numOfMoves;
+    [SerializeField] internal int health;
 
     // Start is called before the first frame update
     void Start()
     {
         inPlay = true;
         numOfMoves = unit.numberOfMoves;
+        health = unit.maxHealth;
     }
 
     // Update is called once per frame

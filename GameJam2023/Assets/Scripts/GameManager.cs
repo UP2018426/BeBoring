@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] internal bool placing;
     [SerializeField] internal UnitScriptableObject unitTypeToPass;
 
-    [SerializeField] GameObject prefabUnit;
+    [SerializeField] internal GameObject prefabUnit;
     internal Color tmpColour;
 
     private void Awake()
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
             {
                 var tmp = Instantiate(prefabUnit, hit.transform.position, Quaternion.identity);
                 tmp.GetComponent<PathLogic>().unit = unitTypeToPass;
-                tmp.GetComponent<Renderer>().material.color = tmpColour;
+                //tmp.GetComponent<Renderer>().material.color = tmpColour;
 
                 placing = false;
             }

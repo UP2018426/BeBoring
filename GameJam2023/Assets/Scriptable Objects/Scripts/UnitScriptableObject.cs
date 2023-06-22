@@ -9,6 +9,8 @@ public class UnitScriptableObject : ScriptableObject
 {
     [SerializeField] internal string unitName;
 
+    [SerializeField] internal GameObject model;
+
     [SerializeField] internal int maxHealth;
     [Serializable] internal enum Formation { march,defence,attack};
 

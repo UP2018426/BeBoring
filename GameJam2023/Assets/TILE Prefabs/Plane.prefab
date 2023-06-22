@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3282330204974250225}
   - component: {fileID: 750371226498010171}
   - component: {fileID: 7508715960299849161}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446da9fd08f991441bd4b5931c292437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HoverMat: {fileID: 2100000, guid: bd9fcb07072890a4eb1cafe4520cfe57, type: 2}
+  HoverMat: {fileID: 2100000, guid: 386378e2fd70deb4cb46d5a9efd44a8f, type: 2}
   thisMaterial: {fileID: 0}
   meshRenderer: {fileID: 750371226498010171}
   unit: {fileID: 0}
+  selectable: 0
+  gm: {fileID: 0}
