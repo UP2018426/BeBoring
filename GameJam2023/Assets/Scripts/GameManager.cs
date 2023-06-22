@@ -10,7 +10,10 @@ public class GameManager : MonoBehaviour
     internal static GameManager instance;
     public GameObject selectedUnit;
 
+    [SerializeField] internal bool p1Turn = true;
+
     public List<TroopCommands> playerAMoves = new List<TroopCommands>();
+    public List<TroopCommands> playerBMoves = new List<TroopCommands>();
     public List<Vector3> allTroops = new List<Vector3>();
 
     public enum MoveType
@@ -45,6 +48,18 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
+    }
+
+    public  void PlayerMoveInputChange()
+    {
+        if (p1Turn)
+        {
+            p1Turn = false;
+        }
+        else
+        {
+            p1Turn = true;
+        }
     }
 
     // Update is called once per frame
@@ -91,7 +106,7 @@ public class GameManager : MonoBehaviour
 
     void GetMapState()
     {
-        allTroops.Clear();
+        //allTroops.Clear();
         var temp = GameObject.FindGameObjectsWithTag("Unit");
 
         for (int i = 0; i < /*GameObject.FindGameObjectsWithTag("Unit")*/temp.Length; i++)
