@@ -1959,17 +1959,18 @@ MonoBehaviour:
     all floor spaces around them where as the ranged units can attack 1 more grid
     space away. Both the infantry and ranged units have diferent ammounts of health
     and damage that they can deal with the infantry having 8  health and 3 attack
-    while the ranged unit has 5 health and 2 attack.
+    while the ranged unit has 5 health and 2 attack. To return to this main menu
+    from the playabel scene or the test scene press escape.
 
 
 
 
 
 
-    The test scene contains
-    a dice throwing mechanic that there wasnt enough time to implement for when units
-    attack to determine damage dealt. which can be seen by pressing and holding the
-    space-bar to determine the strength that the die are thrown at'
+    The test scene
+    contains a dice throwing mechanic that there wasnt enough time to implement for
+    when units attack to determine damage dealt. which can be seen by pressing and
+    holding the space-bar to determine the strength that the die are thrown at'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
