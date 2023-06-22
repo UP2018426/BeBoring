@@ -26,9 +26,9 @@ public class CameraController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             moveDir += transform.right * Time.deltaTime * moveSpeed;
 
-        if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.E)/* || Input.GetKey(KeyCode.LeftControl)*/)
             moveDir += Vector3.up * Time.deltaTime * moveSpeed * 0.8f;
-        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Q)/* || Input.GetKey(KeyCode.Space)*/)
             moveDir += Vector3.down * Time.deltaTime * moveSpeed * 0.8f;
 
 
