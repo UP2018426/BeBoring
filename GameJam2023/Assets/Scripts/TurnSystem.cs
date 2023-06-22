@@ -43,7 +43,9 @@ public class TurnSystem : MonoBehaviour
 
         SetQueue(gm.playerAMoves, gm.playerBMoves);
 
-        for (int i = 0; i < troopComandsP1.Count + troopComandsP2.Count; i++)
+        var tmp = troopComandsP1.Count+troopComandsP2.Count;
+
+        for (int i = 0; i < tmp; i++)
         {
             if (troopComandsP1.Count + troopComandsP2.Count == 0)
             {

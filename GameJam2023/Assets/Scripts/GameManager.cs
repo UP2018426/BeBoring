@@ -136,6 +136,7 @@ public class GameManager : MonoBehaviour
     public void GetMapState()
     {
         allTroopsobj.Clear();
+        allTroops.Clear();
 
         var temp = GameObject.FindObjectsOfType<PathLogic>();
 
