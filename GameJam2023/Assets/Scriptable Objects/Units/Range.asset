@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Range
   m_EditorClassIdentifier: 
   unitName: Range
+  model: {fileID: 7822620815059627996, guid: 53c993e34ebdc954cab5a63641d84e70, type: 3}
   maxHealth: 5
   formation: 0
   numberOfMoves: 2

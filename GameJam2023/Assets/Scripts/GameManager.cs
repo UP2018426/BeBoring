@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Debug.Log(playerAMoves.Count);
-        GetMapState();
+        //GetMapState();
 
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 100f;
@@ -83,13 +83,13 @@ public class GameManager : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100, mask))
             {
                 Debug.Log(hit.transform.name);
-                hit.transform.GetComponent<Renderer>().material.color = Color.red;
+                //hit.transform.GetComponent<Renderer>().material.color = Color.red;
 
                 selectedUnit = hit.transform.gameObject;
             }
             else if (hit.collider == null && selectedUnit != null)
             {
-                selectedUnit.GetComponent<Renderer>().material.color = Color.white;
+                //selectedUnit.GetComponent<Renderer>().material.color = Color.white;
                 selectedUnit = null;
             }
 
@@ -116,14 +116,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Attack(PathLogic attacker, PathLogic defender)
-    {
-        //check to see if they can attack eachother
-        if((attacker.gameObject.transform.position - defender.transform.position).magnitude < attacker.unit.range)
-        {
-            GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
-            cam.GetComponent<DiceRoller>().canThrow = true;
-        }
-    }
+    
 
 }

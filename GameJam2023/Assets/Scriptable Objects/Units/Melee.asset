@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Melee
   m_EditorClassIdentifier: 
   unitName: Melee
-  model: {fileID: 4549636066101081512, guid: b8cb4bd49b1f2b64e838fffcc1cc89b6, type: 3}
+  model: {fileID: 240126655017670775, guid: 7cea15165c311c3478b391bb3a4f7211, type: 3}
   maxHealth: 5
   formation: 0
   numberOfMoves: 3

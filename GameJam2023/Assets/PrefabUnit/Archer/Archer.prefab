@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4453260182542467164}
   - component: {fileID: 6433783180132926108}
   - component: {fileID: 175361930566531639}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5640392126002480417}
   - component: {fileID: 2302560882650525302}
   - component: {fileID: 886062134866038390}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4356199598935410876}
   - component: {fileID: 3041773002107906760}
   - component: {fileID: 269505985592697938}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 6032006629119618563}
   - component: {fileID: 3046878117812803741}
   - component: {fileID: 6867605060981408834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7477198605108180326}
-  m_Layer: 0
+  - component: {fileID: 7443533066833568313}
+  - component: {fileID: 6874685315778798692}
+  m_Layer: 6
   m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,3 +369,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7443533066833568313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822620815059627996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8df48cb3ca7ab45b2783ac5cd94261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  surroundingunits: []
+  currentPos: {fileID: 0}
+  unit: {fileID: 11400000, guid: a922c64cdcb32524d887c6e5989a5223, type: 2}
+  numOfMoves: 0
+  health: 0
+--- !u!65 &6874685315778798692
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822620815059627996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6505656, y: 1.3671921, z: 0.60547817}
+  m_Center: {x: 0.005635977, y: 0.6445678, z: -0.0056360364}

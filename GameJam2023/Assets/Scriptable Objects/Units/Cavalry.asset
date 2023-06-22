@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cavalry
   m_EditorClassIdentifier: 
   unitName: Cavalry
+  model: {fileID: 337116470148507090, guid: 7fe5d3a25aa06234ebd20a7cab06b68a, type: 3}
   maxHealth: 5
   formation: 0
   numberOfMoves: 5
