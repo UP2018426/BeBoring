@@ -52,6 +52,9 @@ MonoBehaviour:
   unit: {fileID: 11400000, guid: 686c22e7d8b367e4eb1cba7f409db13c, type: 2}
   numOfMoves: 0
   health: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!65 &-6061350806697423099
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -60,7 +60,10 @@ public class PathLogic : MonoBehaviour
             }
         }
     }
-    
+
+    [SerializeField] LayerMask t1;
+    [SerializeField] LayerMask t2;
+
     void nearunits()
     {
         for (int i = 0; i < neighbours.Count; i++)
@@ -68,7 +71,7 @@ public class PathLogic : MonoBehaviour
             neighbours[i].GetComponent<TileSelector>().selectable = false;
         }
 
-        neighbours = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, LayerMask.GetMask("Water")).ToList();
+        neighbours = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, t1).ToList();
         
         float temp = Mathf.Infinity;
         

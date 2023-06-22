@@ -39,7 +39,7 @@ public class TurnSystem : MonoBehaviour
 
     public void turn()
     {
-        //gm.SetMapState();
+        gm.SetMapState();
 
         SetQueue(gm.playerAMoves, gm.playerBMoves);
 
@@ -70,6 +70,8 @@ public class TurnSystem : MonoBehaviour
             }
         }
         gm.playerAMoves.Clear();
+        
+        gm.GetMapState();
     }
 
     void quePopper(Queue<TroopCommands> currentQue)
