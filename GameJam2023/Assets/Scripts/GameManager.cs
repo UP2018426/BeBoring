@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     }
 
     Camera cam;
-    [SerializeField] LayerMask mask;
+    [SerializeField] internal LayerMask mask;
     [SerializeField] LayerMask mask2;
     [SerializeField] internal bool placing;
     [SerializeField] internal UnitScriptableObject unitTypeToPass;
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
                 placing = false;
             }
         }
-        if (p1Turn)
+        if (p1Turn && playerinputingMoves != null)
         {
             playerinputingMoves.text = ("Blue Moves");
         }

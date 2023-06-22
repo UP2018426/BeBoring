@@ -36,18 +36,18 @@ public class TileSelector : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && Cursor.visible && selectable)
         {
-            if (gm.selectedUnit.GetComponent<PathLogic>().numOfMoves > 0)
+            if (gm.selectedUnit.GetComponent<PathLogic>().numOfMoves > 0 && gm.p1Turn)
             {
                 gm.playerAMoves.Add(new GameManager.TroopCommands(GameManager.MoveType.Move, gm.selectedUnit.transform.position, transform.position,gm.selectedUnit));
                 gm.selectedUnit.transform.position = transform.position;
                 gm.selectedUnit.GetComponent<PathLogic>().numOfMoves--;
             }
-            //else
-            //{
-            //    gm.selectedUnit.transform.position = transform.position;
-            //    gm.playerAMoves.Add(new GameManager.TroopCommands(GameManager.MoveType.Move, new Vector2(transform.position.x, transform.position.z)));
-            //    gm.selectedUnit.GetComponent<PathLogic>().numOfMoves--;
-            //}
+            else
+            {
+                gm.playerBMoves.Add(new GameManager.TroopCommands(GameManager.MoveType.Move, gm.selectedUnit.transform.position, transform.position, gm.selectedUnit));
+                gm.selectedUnit.transform.position = transform.position;
+                gm.selectedUnit.GetComponent<PathLogic>().numOfMoves--;
+            }
 
             //Debug.Log("SHID");
 

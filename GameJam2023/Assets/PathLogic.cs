@@ -61,33 +61,42 @@ public class PathLogic : MonoBehaviour
         }
     }
 
-    [SerializeField] LayerMask t1;
+    [SerializeField] LayerMask enemy;
     [SerializeField] LayerMask t2;
 
     void nearunits()
-    { 
+    {
         //MAY TAKE FORM GAME MANAGER AND GIVE THE UNITS TAG THEN JUST COMPARE IF IT HAS TEH RIGHT TAG
-        surroundingunits = Physics.OverlapBox(transform.position + new Vector3(0,2,0), new Vector3(1,0,1), Quaternion.identity, t1).ToList();
+        surroundingunits = Physics.OverlapBox(transform.position + new Vector3(0, 2, 0), new Vector3(1, 0, 1), Quaternion.identity, GameManager.instance.mask).ToList();
         
         float temp = Mathf.Infinity;
-        
-        for (int i = 0; i < neighbours.Count; i++)
+
+        for (int i = 0; i < surroundingunits.Count; i++)
         {
-            //surroundingunits[i].GetComponent<TileSelector>().selectable = true;
-            if((surroundingunits[i].gameObject.transform.position - transform.position).magnitude < temp)
+            if (surroundingunits[i].CompareTag(enemy.ToString()))
             {
-                temp = (surroundingunits[i].gameObject.transform.position - transform.position).magnitude;
-                //currentPos = neighbours[i].gameObject;
+
             }
         }
-        for (int i = 0; i < neighbours.Count; i++)
-        {
-            //if (surroundingunits[i].gameObject == currentPos)
-            {
-                neighbours[i].GetComponent<TileSelector>().selectable = false;
-                neighbours.RemoveAt(i);
-            }
-        }
+
+
+        //for (int i = 0; i < neighbours.Count; i++)
+        //{
+        //    //surroundingunits[i].GetComponent<TileSelector>().selectable = true;
+        //    if((surroundingunits[i].gameObject.transform.position - transform.position).magnitude < temp)
+        //    {
+        //        temp = (surroundingunits[i].gameObject.transform.position - transform.position).magnitude;
+        //        //currentPos = neighbours[i].gameObject;
+        //    }
+        //}
+        //for (int i = 0; i < neighbours.Count; i++)
+        //{
+        //    //if (surroundingunits[i].gameObject == currentPos)
+        //    {
+        //        //neighbours[i].GetComponent<TileSelector>().selectable = false;
+        //        //neighbours.RemoveAt(i);
+        //    }
+        //}
     }
 
     private void OnDrawGizmos()

@@ -70,6 +70,7 @@ public class TurnSystem : MonoBehaviour
             }
         }
         gm.playerAMoves.Clear();
+        gm.playerBMoves.Clear();
         
         //ADD THING FOR ATTACKS
 
