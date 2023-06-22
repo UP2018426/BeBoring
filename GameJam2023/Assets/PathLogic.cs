@@ -8,8 +8,8 @@ public class PathLogic : MonoBehaviour
 {
     private bool inPlay;
     public List<Collider> neighbours;
-    public List<Collider> surroundingunits;
-    [SerializeField]private GameObject currentPos;
+    public List<Collider> surroundingunits = new();
+    [SerializeField] private GameObject currentPos;
 
     [SerializeField] internal UnitScriptableObject unit;
 
@@ -29,6 +29,8 @@ public class PathLogic : MonoBehaviour
     {
         CheckNeighbours();
         transform.position = currentPos.transform.position;
+
+        //nearunits();
     }
 
     void CheckNeighbours()
@@ -39,13 +41,13 @@ public class PathLogic : MonoBehaviour
         }
 
         neighbours = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, LayerMask.GetMask("Water")).ToList();
-        
+
         float temp = Mathf.Infinity;
-        
+
         for (int i = 0; i < neighbours.Count; i++)
         {
             neighbours[i].GetComponent<TileSelector>().selectable = true;
-            if((neighbours[i].gameObject.transform.position - transform.position).magnitude < temp)
+            if ((neighbours[i].gameObject.transform.position - transform.position).magnitude < temp)
             {
                 temp = (neighbours[i].gameObject.transform.position - transform.position).magnitude;
                 currentPos = neighbours[i].gameObject;
@@ -61,23 +63,37 @@ public class PathLogic : MonoBehaviour
         }
     }
 
-    [SerializeField] LayerMask enemy;
-    [SerializeField] LayerMask t2;
+    //[SerializeField] LayerMask friend;
+    [SerializeField] string enemy;
 
-    void nearunits()
+    internal void nearunits()
     {
-        //MAY TAKE FORM GAME MANAGER AND GIVE THE UNITS TAG THEN JUST COMPARE IF IT HAS TEH RIGHT TAG
-        surroundingunits = Physics.OverlapBox(transform.position + new Vector3(0, 2, 0), new Vector3(1, 0, 1), Quaternion.identity, GameManager.instance.mask).ToList();
-        
-        float temp = Mathf.Infinity;
 
-        for (int i = 0; i < surroundingunits.Count; i++)
+        if (surroundingunits.Count > 0)
         {
-            if (surroundingunits[i].CompareTag(enemy.ToString()))
-            {
-
-            }
+            surroundingunits.Clear();
         }
+        
+        //MAY TAKE FORM GAME MANAGER AND GIVE THE UNITS TAG THEN JUST COMPARE IF IT HAS TEH RIGHT TAG
+        surroundingunits = Physics.OverlapBox(transform.position + new Vector3(0, 1, 0), new Vector3(1, 0, 1 ) * unit.range, Quaternion.identity, LayerMask.GetMask("Player")).ToList();
+
+        //float temp = Mathf.Infinity;
+        //var enemies = new List<GameObject>();
+
+        if (surroundingunits.Count > 0)
+        {
+            for (int i = 0; i < surroundingunits.Count; i++)
+            {
+                if (surroundingunits[i].CompareTag(enemy))
+                {
+                    surroundingunits[i].GetComponent<PathLogic>().health -= unit.attackPower;
+
+                    //surroundingunits.Remove(surroundingunits[i]);
+                }
+            }
+
+        }
+
 
 
         //for (int i = 0; i < neighbours.Count; i++)
@@ -103,7 +119,7 @@ public class PathLogic : MonoBehaviour
     {
         if (inPlay)
         {
-            Gizmos.color = new Color(0,0,1,0.25f);
+            Gizmos.color = new Color(0, 0, 1, 0.25f);
             Gizmos.DrawSphere(currentPos.transform.position, 0.4f);
             Gizmos.color = new Color(1, 0, 0, 0.25f);
 
@@ -112,7 +128,7 @@ public class PathLogic : MonoBehaviour
                 Gizmos.DrawSphere(neighbours[i].transform.position, 0.4f);
             }
 
-            Gizmos.DrawWireCube(transform.position, new Vector3(1,0,1));
+            Gizmos.DrawWireCube(transform.position + new Vector3(0, 1, 0), new Vector3(1, 0, 1) * unit.range);
         }
-    } 
+    }
 }

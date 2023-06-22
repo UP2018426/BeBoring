@@ -42,7 +42,7 @@ public class TileSelector : MonoBehaviour
                 gm.selectedUnit.transform.position = transform.position;
                 gm.selectedUnit.GetComponent<PathLogic>().numOfMoves--;
             }
-            else
+            else if (gm.selectedUnit.GetComponent<PathLogic>().numOfMoves > 0 &! gm.p1Turn)
             {
                 gm.playerBMoves.Add(new GameManager.TroopCommands(GameManager.MoveType.Move, gm.selectedUnit.transform.position, transform.position, gm.selectedUnit));
                 gm.selectedUnit.transform.position = transform.position;

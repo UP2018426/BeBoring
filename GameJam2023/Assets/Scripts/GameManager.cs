@@ -55,24 +55,30 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
+
+        GetMapState();
+        SetMapState();
     }
 
     public  void PlayerMoveInputChange()
     {
-        if (p1Turn)
+        if (p1Turn == true)
         {
             p1Turn = false;
         }
-        else
+        else if (p1Turn == false)
         {
             p1Turn = true;
         }
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerAMoves.Count);
+        Debug.Log($"player 1 move count {playerAMoves.Count}");
+        Debug.Log($"player 2 move count {playerBMoves.Count}");
         //GetMapState();
 
         Vector3 mousePos = Input.mousePosition;
@@ -113,7 +119,7 @@ public class GameManager : MonoBehaviour
         {
             playerinputingMoves.text = ("Blue Moves");
         }
-        else
+        else if (!p1Turn && playerinputingMoves != null)
         {
             playerinputingMoves.text = ("Red Moves");
         }
@@ -129,13 +135,14 @@ public class GameManager : MonoBehaviour
 
     public void GetMapState()
     {
-        //allTroops.Clear();
-        var temp = GameObject.FindGameObjectsWithTag("Unit");
+        allTroopsobj.Clear();
+
+        var temp = GameObject.FindObjectsOfType<PathLogic>();
 
         for (int i = 0; i < /*GameObject.FindGameObjectsWithTag("Unit")*/temp.Length; i++)
         {
             allTroops.Add(/*GameObject.FindGameObjectsWithTag("Unit")*/temp[i].transform.position);
-            allTroopsobj.Add(/*GameObject.FindGameObjectsWithTag("Unit")*/temp[i]);
+            allTroopsobj.Add(/*GameObject.FindGameObjectsWithTag("Unit")*/temp[i].gameObject);
         }
     }
 

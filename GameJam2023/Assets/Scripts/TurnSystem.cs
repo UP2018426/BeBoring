@@ -21,17 +21,17 @@ public class TurnSystem : MonoBehaviour
 
     void SetQueue(List<TroopCommands> commandsp1, List<TroopCommands> commandsp2)
     {
-        Debug.Log("setQue");
+        //Debug.Log("setQue");
 
         for (int i = 0; i < commandsp1.Count; i++)
         {
-            Debug.Log("setQue1");
+            //Debug.Log("setQue1");
             troopComandsP1.Enqueue(commandsp1[i]);
 
         }
         for (int i = 0; i < commandsp2.Count; i++)
         {
-            Debug.Log("setQue2");
+            //Debug.Log("setQue2");
             troopComandsP2.Enqueue(commandsp2[i]);
         }
     }
@@ -43,7 +43,7 @@ public class TurnSystem : MonoBehaviour
 
         SetQueue(gm.playerAMoves, gm.playerBMoves);
 
-        for (int i = 0; i < troopComandsP1.Count; i++)
+        for (int i = 0; i < troopComandsP1.Count + troopComandsP2.Count; i++)
         {
             if (troopComandsP1.Count + troopComandsP2.Count == 0)
             {
@@ -60,19 +60,29 @@ public class TurnSystem : MonoBehaviour
                     quePopper(troopComandsP2);
                 }
             }
-            else if(troopComandsP1.Count == 0)
+            else if (troopComandsP1.Count == 0)
             {
-                    quePopper(troopComandsP2);
+                quePopper(troopComandsP2);
             }
-            else if(troopComandsP2.Count == 0)
+            else if (troopComandsP2.Count == 0)
             {
-                    quePopper(troopComandsP1);
+                quePopper(troopComandsP1);
             }
         }
         gm.playerAMoves.Clear();
         gm.playerBMoves.Clear();
-        
-        //ADD THING FOR ATTACKS
+
+        //ADD THING FOR ATTACKS it is in the path logic
+
+
+        for (int i = 0; i < gm.allTroopsobj.Count; i++)
+        {
+            if (gm.allTroopsobj[i] != null)
+            {
+                gm.allTroopsobj[i].GetComponent<PathLogic>().numOfMoves = gm.allTroopsobj[i].GetComponent<PathLogic>().unit.numberOfMoves;
+                gm.allTroopsobj[i].GetComponent<PathLogic>().nearunits();
+            }
+        }
 
         gm.GetMapState();
     }
