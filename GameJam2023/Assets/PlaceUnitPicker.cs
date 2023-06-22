@@ -24,5 +24,6 @@ public class PlaceUnitPicker : MonoBehaviour
         tmp.placing = true;
         tmp.tmpColour = col;
         tmp.unitTypeToPass = unitScriptableObject;
+        tmp.prefabUnit = unitScriptableObject.model;
     }
 }
