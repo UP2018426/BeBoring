@@ -20,6 +20,6 @@ public class UnitScriptableObject : ScriptableObject
 
     [SerializeField] internal int attackPower;
 
-    [SerializeField] internal int range;
+    [SerializeField] internal float range;
 
 }

@@ -147,6 +147,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void deselectSelecetedUnit()
+    {
+        selectedUnit = null;
+    }
+
     [SerializeField] TextMeshProUGUI playerinputingMoves;
 
 }

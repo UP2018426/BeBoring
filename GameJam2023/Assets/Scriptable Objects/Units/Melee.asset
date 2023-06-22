@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Melee
   model: {fileID: 240126655017670775, guid: 7cea15165c311c3478b391bb3a4f7211, type: 3}
-  maxHealth: 5
+  maxHealth: 8
   formation: 0
   numberOfMoves: 3
   attackPower: 3
-  range: 1
+  range: 1.5

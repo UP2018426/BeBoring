@@ -14,7 +14,7 @@ public class PathLogic : MonoBehaviour
     [SerializeField] internal UnitScriptableObject unit;
 
     [SerializeField] internal int numOfMoves;
-    [SerializeField] internal int health;
+    [SerializeField] public int health;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +30,11 @@ public class PathLogic : MonoBehaviour
         CheckNeighbours();
         transform.position = currentPos.transform.position;
 
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
         //nearunits();
     }
 
@@ -68,14 +73,11 @@ public class PathLogic : MonoBehaviour
 
     internal void nearunits()
     {
-
-        if (surroundingunits.Count > 0)
-        {
-            surroundingunits.Clear();
-        }
+        surroundingunits.Clear();
+        
         
         //MAY TAKE FORM GAME MANAGER AND GIVE THE UNITS TAG THEN JUST COMPARE IF IT HAS TEH RIGHT TAG
-        surroundingunits = Physics.OverlapBox(transform.position + new Vector3(0, 1, 0), new Vector3(1, 0, 1 ) * unit.range, Quaternion.identity, LayerMask.GetMask("Player")).ToList();
+        surroundingunits = Physics.OverlapBox(transform.position + new Vector3(0, 1, 0), new Vector3(1, 0.5f, 1 ) * unit.range, Quaternion.identity, LayerMask.GetMask("Player")).ToList();
 
         //float temp = Mathf.Infinity;
         //var enemies = new List<GameObject>();
@@ -128,7 +130,7 @@ public class PathLogic : MonoBehaviour
                 Gizmos.DrawSphere(neighbours[i].transform.position, 0.4f);
             }
 
-            Gizmos.DrawWireCube(transform.position + new Vector3(0, 1, 0), new Vector3(1, 0, 1) * unit.range);
+            Gizmos.DrawWireCube(transform.position + new Vector3(0, 1, 0), new Vector3(1, 0.5f, 1) * unit.range);
         }
     }
 }
