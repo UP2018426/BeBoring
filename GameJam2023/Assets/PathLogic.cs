@@ -67,7 +67,7 @@ public class PathLogic : MonoBehaviour
     void nearunits()
     { 
         //MAY TAKE FORM GAME MANAGER AND GIVE THE UNITS TAG THEN JUST COMPARE IF IT HAS TEH RIGHT TAG
-        surroundingunits = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, t1).ToList();
+        surroundingunits = Physics.OverlapBox(transform.position + new Vector3(0,2,0), new Vector3(1,0,1), Quaternion.identity, t1).ToList();
         
         float temp = Mathf.Infinity;
         
@@ -77,12 +77,12 @@ public class PathLogic : MonoBehaviour
             if((surroundingunits[i].gameObject.transform.position - transform.position).magnitude < temp)
             {
                 temp = (surroundingunits[i].gameObject.transform.position - transform.position).magnitude;
-                currentPos = neighbours[i].gameObject;
+                //currentPos = neighbours[i].gameObject;
             }
         }
         for (int i = 0; i < neighbours.Count; i++)
         {
-            if (surroundingunits[i].gameObject == currentPos)
+            //if (surroundingunits[i].gameObject == currentPos)
             {
                 neighbours[i].GetComponent<TileSelector>().selectable = false;
                 neighbours.RemoveAt(i);
@@ -103,7 +103,7 @@ public class PathLogic : MonoBehaviour
                 Gizmos.DrawSphere(neighbours[i].transform.position, 0.4f);
             }
 
-            Gizmos.DrawWireCube(transform.position, transform.forward);
+            Gizmos.DrawWireCube(transform.position, new Vector3(1,0,1));
         }
     } 
 }
