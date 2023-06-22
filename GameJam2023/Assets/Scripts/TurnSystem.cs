@@ -71,6 +71,8 @@ public class TurnSystem : MonoBehaviour
         }
         gm.playerAMoves.Clear();
         
+        //ADD THING FOR ATTACKS
+
         gm.GetMapState();
     }
 

@@ -5,6 +5,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.PlayerSettings;
+using TMPro;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -107,6 +109,13 @@ public class GameManager : MonoBehaviour
                 placing = false;
             }
         }
+        if (p1Turn)
+        {
+            playerinputingMoves.text = ("Blue Moves");
+        }
+        {
+            playerinputingMoves.text = ("Red Moves");
+        }
     }
 
     public void SetMapState()
@@ -129,6 +138,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    [SerializeField] TextMeshProUGUI playerinputingMoves;
 
 }

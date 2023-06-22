@@ -65,28 +65,24 @@ public class PathLogic : MonoBehaviour
     [SerializeField] LayerMask t2;
 
     void nearunits()
-    {
-        for (int i = 0; i < neighbours.Count; i++)
-        {
-            neighbours[i].GetComponent<TileSelector>().selectable = false;
-        }
-
-        neighbours = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, t1).ToList();
+    { 
+        //MAY TAKE FORM GAME MANAGER AND GIVE THE UNITS TAG THEN JUST COMPARE IF IT HAS TEH RIGHT TAG
+        surroundingunits = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, t1).ToList();
         
         float temp = Mathf.Infinity;
         
         for (int i = 0; i < neighbours.Count; i++)
         {
-            neighbours[i].GetComponent<TileSelector>().selectable = true;
-            if((neighbours[i].gameObject.transform.position - transform.position).magnitude < temp)
+            //surroundingunits[i].GetComponent<TileSelector>().selectable = true;
+            if((surroundingunits[i].gameObject.transform.position - transform.position).magnitude < temp)
             {
-                temp = (neighbours[i].gameObject.transform.position - transform.position).magnitude;
+                temp = (surroundingunits[i].gameObject.transform.position - transform.position).magnitude;
                 currentPos = neighbours[i].gameObject;
             }
         }
         for (int i = 0; i < neighbours.Count; i++)
         {
-            if (neighbours[i].gameObject == currentPos)
+            if (surroundingunits[i].gameObject == currentPos)
             {
                 neighbours[i].GetComponent<TileSelector>().selectable = false;
                 neighbours.RemoveAt(i);
