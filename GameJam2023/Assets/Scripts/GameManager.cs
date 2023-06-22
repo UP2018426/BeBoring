@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public List<TroopCommands> playerAMoves = new List<TroopCommands>();
     public List<TroopCommands> playerBMoves = new List<TroopCommands>();
     public List<Vector3> allTroops = new List<Vector3>();
+    public List<GameObject> allTroopsobj = new();
 
     public enum MoveType
     {
@@ -27,13 +28,16 @@ public class GameManager : MonoBehaviour
     }
     public struct TroopCommands
     {
-        MoveType moveType;
-        Vector2 pos;
-        public TroopCommands(MoveType moveType, Vector2 pos)
+        internal MoveType moveType;
+        internal Vector3 CurrentPos;
+        internal Vector3 targetPos;
+        internal GameObject gamObj;
+        public TroopCommands(MoveType moveType, Vector3 CurrentPos, Vector3 pos, GameObject gamObjec)
         {
             this.moveType = moveType;
-            this.pos = pos;
-
+            this.CurrentPos = CurrentPos;
+            this.targetPos = pos;
+            gamObj = gamObjec;
         }
     }
 
@@ -105,7 +109,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void GetMapState()
+    public void SetMapState()
+    {
+        for (int i = 0; i < allTroops.Count; i++)
+        {
+            allTroopsobj[i].transform.position = allTroops[i];
+        }
+    }
+
+    public void GetMapState()
     {
         //allTroops.Clear();
         var temp = GameObject.FindGameObjectsWithTag("Unit");
@@ -113,6 +125,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < /*GameObject.FindGameObjectsWithTag("Unit")*/temp.Length; i++)
         {
             allTroops.Add(/*GameObject.FindGameObjectsWithTag("Unit")*/temp[i].transform.position);
+            allTroopsobj.Add(/*GameObject.FindGameObjectsWithTag("Unit")*/temp[i]);
         }
     }
 

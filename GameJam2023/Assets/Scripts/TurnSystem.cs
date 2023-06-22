@@ -12,15 +12,38 @@ public class TurnSystem : MonoBehaviour
     //need to pop off of each queue based on coin flip
 
 
+    public GameManager gm;
+
     Queue<TroopCommands> troopComandsP1 = new();
     Queue<TroopCommands> troopComandsP2 = new();
 
 
 
-
-    void turn()
+    void SetQueue(List<TroopCommands> commandsp1, List<TroopCommands> commandsp2)
     {
-        for (int i = 0; i < troopComandsP1.Count-1 + troopComandsP2.Count-1; i++)
+        Debug.Log("setQue");
+
+        for (int i = 0; i < commandsp1.Count; i++)
+        {
+            Debug.Log("setQue1");
+            troopComandsP1.Enqueue(commandsp1[i]);
+
+        }
+        for (int i = 0; i < commandsp2.Count; i++)
+        {
+            Debug.Log("setQue2");
+            troopComandsP2.Enqueue(commandsp2[i]);
+        }
+    }
+
+
+    public void turn()
+    {
+        //gm.SetMapState();
+
+        SetQueue(gm.playerAMoves, gm.playerBMoves);
+
+        for (int i = 0; i < troopComandsP1.Count; i++)
         {
             if (troopComandsP1.Count + troopComandsP2.Count == 0)
             {
@@ -46,6 +69,7 @@ public class TurnSystem : MonoBehaviour
                     quePopper(troopComandsP1);
             }
         }
+        gm.playerAMoves.Clear();
     }
 
     void quePopper(Queue<TroopCommands> currentQue)
@@ -61,6 +85,10 @@ public class TurnSystem : MonoBehaviour
 
     void RunCommands(TroopCommands command)
     {
-
+        Debug.Log("run comand");
+        if (command.moveType == MoveType.Move)
+        {
+            command.gamObj.transform.position = command.targetPos;
+        }
     }
 }
