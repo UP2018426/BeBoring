@@ -8,6 +8,7 @@ public class PathLogic : MonoBehaviour
 {
     private bool inPlay;
     public List<Collider> neighbours;
+    public List<Collider> surroundingunits;
     [SerializeField]private GameObject currentPos;
 
     [SerializeField] internal UnitScriptableObject unit;
@@ -29,6 +30,36 @@ public class PathLogic : MonoBehaviour
     }
 
     void CheckNeighbours()
+    {
+        for (int i = 0; i < neighbours.Count; i++)
+        {
+            neighbours[i].GetComponent<TileSelector>().selectable = false;
+        }
+
+        neighbours = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, LayerMask.GetMask("Water")).ToList();
+        
+        float temp = Mathf.Infinity;
+        
+        for (int i = 0; i < neighbours.Count; i++)
+        {
+            neighbours[i].GetComponent<TileSelector>().selectable = true;
+            if((neighbours[i].gameObject.transform.position - transform.position).magnitude < temp)
+            {
+                temp = (neighbours[i].gameObject.transform.position - transform.position).magnitude;
+                currentPos = neighbours[i].gameObject;
+            }
+        }
+        for (int i = 0; i < neighbours.Count; i++)
+        {
+            if (neighbours[i].gameObject == currentPos)
+            {
+                neighbours[i].GetComponent<TileSelector>().selectable = false;
+                neighbours.RemoveAt(i);
+            }
+        }
+    }
+    
+    void nearunits()
     {
         for (int i = 0; i < neighbours.Count; i++)
         {

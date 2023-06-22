@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.PlayerSettings;
@@ -97,6 +98,16 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < /*GameObject.FindGameObjectsWithTag("Unit")*/temp.Length; i++)
         {
             allTroops.Add(/*GameObject.FindGameObjectsWithTag("Unit")*/temp[i].transform.position);
+        }
+    }
+
+    void Attack(PathLogic attacker, PathLogic defender)
+    {
+        //check to see if they can attack eachother
+        if((attacker.gameObject.transform.position - defender.transform.position).magnitude < attacker.unit.range)
+        {
+            GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
+            cam.GetComponent<DiceRoller>().canThrow = true;
         }
     }
 
