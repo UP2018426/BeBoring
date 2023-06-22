@@ -6060,7 +6060,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: cav
+  m_text: Cavalry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7610,7 +7610,7 @@ RectTransform:
   m_GameObject: {fileID: 337098073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2111, y: 2.2111, z: 2.2111}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 257420718}
@@ -7619,7 +7619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -286.0371, y: -181}
+  m_AnchoredPosition: {x: -733.2601, y: -445}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &337098075
@@ -20117,6 +20117,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -20225,6 +20226,18 @@ MonoBehaviour:
   Die: {fileID: 4233362968930601107, guid: ea56eea4f88626e43a3d968a75143a46, type: 3}
   diceToThrow: 2
   canThrow: 1
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f02711f7da33442b8bb782b474691d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &964643055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23045,7 +23058,7 @@ RectTransform:
   m_GameObject: {fileID: 1087074828}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2111, y: 2.2111, z: 2.2111}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2029009002}
@@ -23054,7 +23067,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 56, y: -181}
+  m_AnchoredPosition: {x: 23, y: -445}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1087074830
@@ -24640,6 +24653,7 @@ MonoBehaviour:
   selectedUnit: {fileID: 0}
   p1Turn: 0
   allTroops: []
+  allTroopsobj: []
   mask:
     serializedVersion: 2
     m_Bits: 64
@@ -24649,6 +24663,7 @@ MonoBehaviour:
   placing: 0
   unitTypeToPass: {fileID: 0}
   prefabUnit: {fileID: 7064021185708325860, guid: a70a578588f13d049b1c08bf156513ea, type: 3}
+  playerinputingMoves: {fileID: 0}
 --- !u!4 &1133939307
 Transform:
   m_ObjectHideFlags: 0
@@ -31006,7 +31021,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: melee
+  m_text: Infantry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -34657,7 +34672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1593832626
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34667,7 +34682,7 @@ RectTransform:
   m_GameObject: {fileID: 1593832625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2111, y: 2.2111, z: 2.2111}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1858034945}
@@ -34676,7 +34691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -454, y: -181}
+  m_AnchoredPosition: {x: -762.82, y: -445}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1593832627
@@ -43558,7 +43573,7 @@ RectTransform:
   m_GameObject: {fileID: 1981657207}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2111, y: 2.2111, z: 2.2111}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1460959315}
@@ -43567,7 +43582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -116, y: -181}
+  m_AnchoredPosition: {x: -357.30206, y: -445}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1981657209

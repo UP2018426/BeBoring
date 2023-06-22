@@ -52,9 +52,7 @@ MonoBehaviour:
   unit: {fileID: 11400000, guid: 686c22e7d8b367e4eb1cba7f409db13c, type: 2}
   numOfMoves: 0
   health: 0
-  mask:
-    serializedVersion: 2
-    m_Bits: 0
+  enemy: 
 --- !u!65 &-6061350806697423099
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66,8 +64,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.046069037, z: 0.058299836}
-  m_Center: {x: 0, y: 0.020878186, z: 0.006325593}
+  m_Size: {x: 0.036734052, y: 0.046069037, z: 0.058299836}
+  m_Center: {x: -0.000074464086, y: 0.020878186, z: 0.0063255937}
 --- !u!1 &1967760953027075574
 GameObject:
   m_ObjectHideFlags: 0
