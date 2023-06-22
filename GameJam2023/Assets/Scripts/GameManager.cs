@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
         {
             playerinputingMoves.text = ("Blue Moves");
         }
+        else
         {
             playerinputingMoves.text = ("Red Moves");
         }
